@@ -1,8 +1,8 @@
 import React from "react";
 
-function Select({ type, onChange }) {
+function Select({ type, onChange, name }) {
   return (
-    <select onChange={onChange}>
+    <select name={name} onChange={onChange}>
       <option value="">--Please choose a {type}--</option>
       <option value={type === "color" ? "red" : "Arial"}>
         {type === "color" ? "red" : "Arial"}

@@ -8,25 +8,28 @@ function App() {
   const [text, setText] = useState("");
   const [color, setColor] = useState("black");
   const [font, setFont] = useState("Times New Roman");
+  const [size, setSize] = useState(14);
 
-  function handleTextChange(event) {
-    setText(event.target.value);
-  }
-
-  function handleColorChange(event) {
-    setColor(event.target.value);
-  }
-
-  function handleFontChange(event) {
-    setFont(event.target.value);
+  function handleChange(event) {
+    console.log(event.target);
+    if (event.target.name === "text") {
+      setText(event.target.value);
+    } else if (event.target.name === "color") {
+      setColor(event.target.value);
+    } else if (event.target.name === "font") {
+      setFont(event.target.value);
+    } else if (event.target.name === "size") {
+      setSize(event.target.value);
+    }
   }
 
   return (
     <div className="App">
-      <Input onChange={handleTextChange} />
-      <Select type="color" onChange={handleColorChange} />
-      <Select type="font" onChange={handleFontChange} />
-      <Item text={text} font={font} color={color} />
+      <Input name="text" onChange={handleChange} />
+      <Input name="size" onChange={handleChange} />
+      <Select name="color" type="color" onChange={handleChange} />
+      <Select name="font" type="font" onChange={handleChange} />
+      <Item text={text} font={font} color={color} size={`${size}px`} />
       {/* <Item text={text} font="Times New Roman" color="orange" />
       <Item text={text} font="Lucida Console" color="yellow" />
       <Item text={text} font="Copperplate" color="purple" />
