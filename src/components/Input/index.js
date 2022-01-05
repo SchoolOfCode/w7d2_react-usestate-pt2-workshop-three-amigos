@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Input() {
-  return <input type="text" />;
+function Input({ onChange }) {
+  return <input type="text" onChange={onChange} />;
 }
 
 export default Input;
